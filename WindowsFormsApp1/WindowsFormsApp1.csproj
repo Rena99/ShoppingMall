@@ -49,7 +49,7 @@
     <Compile Include="BLL\arimTable.cs" />
     <Compile Include="BLL\asakimTable.cs" />
     <Compile Include="BLL\chanut.cs" />
-    <Compile Include="BLL\chanuyotTale.cs" />
+    <Compile Include="BLL\chanuyotTable.cs" />
     <Compile Include="BLL\esek.cs" />
     <Compile Include="BLL\GeneralTable.cs" />
     <Compile Include="BLL\hascara.cs" />

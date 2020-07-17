@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,26 +13,43 @@ namespace WindowsFormsApp1.GUI
 {
     public partial class FrmChanuyot : Form
     {
-        chanuyotTale chanuyot = new chanuyotTale();
+        chanuyotTable chanuyot = new chanuyotTable();
         chanut chanut;
-       
         DataView d;
 
         public FrmChanuyot()
         {
             InitializeComponent();
-          
-            MiluyCombo();
             d = new DataView(chanuyot.GetQuery());
             dgvChanuyot.DataSource = d;
+            dgvChanuyot.RightToLeft=RightToLeft.Yes;
+            dgvChanuyot.Columns[1].DefaultCellStyle.Format = "N0";
+            dgvChanuyot.Columns[2].DefaultCellStyle.Format = "C2";
+            dgvChanuyot.Columns[6].DefaultCellStyle.Format = "N0";
+            SetHeaderColumn();
+            disableButton();
         }
-        public void MiluyCombo()
-        {
-         
-        }
-        private void FrmChanuyot_Load(object sender, EventArgs e)
-        {
 
+        private void SetHeaderColumn()
+        {
+            dgvChanuyot.Columns[0].HeaderText = "מס' חנות";
+            dgvChanuyot.Columns[1].HeaderText = "גודל";
+            dgvChanuyot.Columns[2].HeaderText = "מחיר השכרה חודשי";
+            dgvChanuyot.Columns[3].HeaderText = "סוג חנות";
+            dgvChanuyot.Columns[4].HeaderText = "קיים חלון ראווה";
+            dgvChanuyot.Columns[5].HeaderText = "קיים מחסן";
+            dgvChanuyot.Columns[6].HeaderText = "גודל מחסן";
+            dgvChanuyot.Columns[7].HeaderText = "קומה";
+            dgvChanuyot.Columns[8].HeaderText = "מס' אגף";
+            dgvChanuyot.Columns[9].HeaderText = "מושכר";
+            dgvChanuyot.Columns[10].HeaderText = "מס' פתחים לחנות";
+        }
+        private void disableButton()
+        {
+            if (dgvChanuyot.Rows.Count <= 1)
+            {
+                button8.Enabled = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,13 +61,13 @@ namespace WindowsFormsApp1.GUI
 
         private void Ff_FormClosed(object sender, FormClosedEventArgs e)
         {
-            d = new DataView(chanuyot.GetDataTable());
+            d = new DataView(chanuyot.GetQuery());
             dgvChanuyot.DataSource = d;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            chanut = new chanut(Convert.ToInt32(dgvChanuyot.SelectedRows[0].Cells[1].Value));
+            chanut = new chanut(Convert.ToInt32(dgvChanuyot.SelectedRows[0].Cells[0].Value));
             Frmchanut ff = new Frmchanut(chanut);
             ff.Show();
             ff.FormClosed += new FormClosedEventHandler(Ff_FormClosed);
@@ -58,14 +76,14 @@ namespace WindowsFormsApp1.GUI
         private void button4_Click(object sender, EventArgs e)
         {
             string matzav = "SHOW";
-            chanut = new chanut(Convert.ToInt32(dgvChanuyot.SelectedRows[0].Cells[1].Value));
+            chanut = new chanut(Convert.ToInt32(dgvChanuyot.SelectedRows[0].Cells[0].Value));
             Frmchanut ff = new Frmchanut(matzav, chanut);
             ff.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            chanut c = new chanut(Convert.ToInt32(dgvChanuyot.SelectedRows[0].Cells[1].Value));
+            chanut c = new chanut(Convert.ToInt32(dgvChanuyot.SelectedRows[0].Cells[0].Value));
             DataView dv = new DataView(new hascarotTable().GetDataTable());
             dv.RowFilter = "misChanut=" + c.MisChanut;
             if (dv.Count > 0)
@@ -73,8 +91,9 @@ namespace WindowsFormsApp1.GUI
             else
             {
                 c.Delete();
-                d = new DataView(chanuyot.GetDataTable());
+                d = new DataView(chanuyot.GetQuery());
                 dgvChanuyot.DataSource = d;
+                disableButton();
             }
         }
 
@@ -85,27 +104,37 @@ namespace WindowsFormsApp1.GUI
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            txtMechir.Visible = true;
-
-        }
-
-        private void txtMechir_TextChanged(object sender, EventArgs e)
-        {
+            if (chbMechir.Checked == true)
+            {
+                txtMechir.Text = "";
+                txtMechir.Visible = true;
+                label1.Visible = true;
+            }
+            else
+            {
+                txtMechir.Visible = false;
+                label1.Visible = false;
+            }
 
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            txtShetach.Visible = true;
-        }
-
-        private void txtShetach_TextChanged(object sender, EventArgs e)
-        {
-
+            if (chbShetach.Checked == true)
+            {
+                txtShetach.Text = "";
+                txtShetach.Visible = true;
+            }
+            else
+            {
+                txtShetach.Visible = false;
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            d = new DataView(chanuyot.GetQuery());
+            dgvChanuyot.DataSource = d;
             string s = "";
             string a = "";
             if (chbMechir.Checked == true)
@@ -129,26 +158,44 @@ namespace WindowsFormsApp1.GUI
             }
             if (s != "")
             {
-                d.RowFilter = s; //not working
+                d.RowFilter = s; 
             }
         }
 
         private void chbSug_CheckedChanged(object sender, EventArgs e)
         {
-            cmbSug.Visible = true;
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            
+            if (chbSug.Checked == true)
+            {
+                cmbSug.Visible = true;
+            }
+            else
+            {
+                cmbSug.Visible = false;
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            chanut=new chanut(Convert.ToInt32(dgvChanuyot.SelectedRows[0].Cells[1].Value));
+            chanut=new chanut(Convert.ToInt32(dgvChanuyot.SelectedRows[0].Cells[0].Value));
             FrmHascara ff = new FrmHascara(chanut);
             ff.Show();
+            ff.FormClosed += new FormClosedEventHandler(Ff_FormClosed);
+        }
+
+        private void txtMechir_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar)  && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtShetach_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

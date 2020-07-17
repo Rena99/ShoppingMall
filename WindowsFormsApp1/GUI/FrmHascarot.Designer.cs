@@ -34,21 +34,28 @@
             // 
             // dgvHascarot
             // 
+            this.dgvHascarot.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
             this.dgvHascarot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHascarot.Location = new System.Drawing.Point(28, 28);
+            this.dgvHascarot.GridColor = System.Drawing.Color.Teal;
+            this.dgvHascarot.Location = new System.Drawing.Point(75, 67);
+            this.dgvHascarot.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.dgvHascarot.MultiSelect = false;
             this.dgvHascarot.Name = "dgvHascarot";
+            this.dgvHascarot.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dgvHascarot.RowHeadersWidth = 102;
             this.dgvHascarot.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHascarot.Size = new System.Drawing.Size(474, 340);
+            this.dgvHascarot.Size = new System.Drawing.Size(1264, 811);
             this.dgvHascarot.TabIndex = 0;
-            this.dgvHascarot.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // FrmHascarot
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.ClientSize = new System.Drawing.Size(1406, 1061);
             this.Controls.Add(this.dgvHascarot);
+            this.ForeColor = System.Drawing.Color.Teal;
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "FrmHascarot";
             this.Text = "FrmHascarot";
             this.Load += new System.EventHandler(this.FrmHascarot_Load);

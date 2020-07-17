@@ -17,7 +17,7 @@ namespace WindowsFormsApp1.BLL
         public GeneralTable(string tableName, string key)
         {
             dal.AddTable(tableName);
-            this.table = dal.GetTable(tableName);
+            table = dal.GetTable(tableName);
             this.tableName = tableName;
             this.key = key;
         }
@@ -71,7 +71,7 @@ namespace WindowsFormsApp1.BLL
         {
             try
             {
-                dal.Update(table.TableName );
+                dal.Update(table.TableName);
             }
             catch (Exception ex)
             {

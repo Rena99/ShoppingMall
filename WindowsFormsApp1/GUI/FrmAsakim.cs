@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.BLL;
 
@@ -16,17 +10,24 @@ namespace WindowsFormsApp1.GUI
         asakimTable asakim = new asakimTable();
         esek ee;
         DataView dv;
-        hascarotTable hascarot;
         public FrmAsakim()
         {
             InitializeComponent();
-            dv = new DataView(asakim.GetDataTable());
+            dv = new DataView(asakim.GetQuery());
             dgvAsakim.DataSource = dv;
+            SetHeaderColumn();
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void SetHeaderColumn()
         {
-
+            dgvAsakim.Columns[0].HeaderText = "מס' עסק";
+            dgvAsakim.Columns[1].HeaderText = "שם עסק";
+            dgvAsakim.Columns[2].HeaderText = "שם איש קשר";
+            dgvAsakim.Columns[3].HeaderText = "נייד";
+            dgvAsakim.Columns[4].HeaderText = "קידומת";
+            dgvAsakim.Columns[5].HeaderText = "מייל איש קשר";
+            dgvAsakim.Columns[6].HeaderText = "כתובת";
+            dgvAsakim.Columns[7].HeaderText = "שם עיר";
+            dgvAsakim.Columns[8].HeaderText = "מייל עסק";
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -35,33 +36,37 @@ namespace WindowsFormsApp1.GUI
             ee = new esek(Convert.ToInt32(dgvAsakim.SelectedRows[0].Cells[0].Value));
             FrmEsek f = new FrmEsek(mazav, ee);
             f.Show();
+            f.FormClosed += new FormClosedEventHandler(Ff_FormClosed);
+        }
+
+        private void Ff_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            dgvAsakim.DataSource = new DataView(asakim.GetQuery());
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             FrmEsek ff = new FrmEsek();
             ff.Show();
+            ff.FormClosed += new FormClosedEventHandler(Ff_FormClosed);
         }
-
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             dv.RowFilter = "shemEsek like'" + txtShem.Text + "*'";
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (txtKod.Text == "")
             {
-                dv = new DataView(asakim.GetDataTable());
+                dv = new DataView(asakim.GetQuery());
                 dgvAsakim.DataSource = dv;
             }
-            dv.RowFilter = "misEsek=" + txtKod.Text;
+            else
+            {
+                dv.RowFilter = "misEsek=" + txtKod.Text;
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -69,11 +74,7 @@ namespace WindowsFormsApp1.GUI
             ee = new esek(Convert.ToInt32(dgvAsakim.SelectedRows[0].Cells[0].Value));
             FrmEsek f = new FrmEsek(ee);
             f.Show();
-        }
-
-        private void FrmAsakim_Load(object sender, EventArgs e)
-        {
-
+            f.FormClosed += new FormClosedEventHandler(Ff_FormClosed);
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -85,22 +86,21 @@ namespace WindowsFormsApp1.GUI
                 MessageBox.Show("לא ניתן למחוק כיוון שיש רשומות מקושרות");
             else
             {
-                dv = new DataView(new arimTable().GetDataTable());
-                dv.RowFilter = "kodIr =" + esek.kodIr;
-                if (dv.Count > 0)
-                    MessageBox.Show("לא ניתן למחוק כיוון שיש רשומות מקושרות");
-                else
-                {
-                    esek.Delete();
-                }
-
+                esek.Delete();
             }
-
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void txtKod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

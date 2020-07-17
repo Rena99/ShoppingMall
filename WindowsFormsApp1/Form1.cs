@@ -17,9 +17,6 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
-            FrmChanuyot ff = new FrmChanuyot();
-            ff.Show();
-            Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,5 +42,6 @@ namespace WindowsFormsApp1
             FrmHascarot ff = new FrmHascarot();
             ff.Show();
         }
+
     }
 }

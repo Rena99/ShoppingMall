@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.BLL;
 
@@ -36,7 +29,8 @@ namespace WindowsFormsApp1.GUI
             cmbkid.SelectedValue = ee.Kidomet;
             txtMailIshKesher.Text = ee.MailIshKesher;
             txtCtovet.Text = ee.CtovetMisrad;
-           cmbShemIr.SelectedValue = ee.kodIr.ToString();
+            cmbShemIr.SelectedValue = ee.kodIr.ToString();
+            txtMailEsek.Text = ee.MailEsek;
          }
         public FrmEsek(string bb,esek ee)
         {
@@ -60,23 +54,21 @@ namespace WindowsFormsApp1.GUI
             txtMailIshKesher.Enabled = false;
             txtCtovet.Enabled = false;
             cmbShemIr.Enabled = false;
-
+            txtMailEsek.Text = ee.MailEsek;
+            txtMailEsek.Enabled = false;
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
             bool degel = true;
             errorProvider1.Clear();
-            es.MisEsek =Convert.ToInt32(  lblMis.Text);
+            es.MisEsek =Convert.ToInt32(lblMis.Text);
             try
             {
-              es.ShemEsek = txtShemEsek.Text;
+                es.ShemEsek = txtShemEsek.Text;
             }
             catch (Exception ex)
             {
-
                 errorProvider1.SetError(txtShemEsek, ex.Message);
                 degel = false;
             }
@@ -86,28 +78,33 @@ namespace WindowsFormsApp1.GUI
             }
             catch (Exception ex)
             {
-
                 errorProvider1.SetError(txtShemIshKesher, ex.Message);
                 degel = false;
             }
             try
             {
                 es.NayadIshKesher = txtNayad.Text;
+                if (es.NayadIshKesher.Length < 7)
+                {
+                    throw new Exception("Number must have seven characters");
+                }
             }
             catch (Exception ex)
             {
-
                 errorProvider1.SetError(txtNayad, ex.Message);
                 degel = false;
             }
-              es.Kidomet = cmbkid.Text;
+            es.Kidomet = cmbkid.Text;
             try
             {
                 es.MailIshKesher = txtMailIshKesher.Text;
+                if (!CheckMail(es.MailIshKesher))
+                {
+                    throw new Exception("must enter valid email");
+                }
             }
             catch (Exception ex)
             {
-
                 errorProvider1.SetError(txtMailIshKesher, ex.Message);
                 degel = false;
             }
@@ -117,18 +114,20 @@ namespace WindowsFormsApp1.GUI
             }
             catch (Exception ex)
             {
-
                 errorProvider1.SetError(txtCtovet, ex.Message);
                 degel = false;
             }
-               es.kodIr =Convert.ToInt32( cmbShemIr.SelectedValue);
+            es.kodIr =Convert.ToInt32( cmbShemIr.SelectedValue);
             try
             {
                 es.MailEsek = txtMailEsek.Text;
+                if (!CheckMail(es.MailEsek)&&es.MailEsek.ToString()!="")
+                {
+                    throw new Exception("must enter valid email");
+                }
             }
             catch (Exception ex)
             {
-
                 errorProvider1.SetError(txtMailEsek, ex.Message);
                 degel = false;
             }
@@ -140,7 +139,7 @@ namespace WindowsFormsApp1.GUI
                     try
                     {
                         es.Add();
-                        this.Close();
+                        Close();
                     }
                     catch (Exception ex)
                     {
@@ -152,33 +151,29 @@ namespace WindowsFormsApp1.GUI
                     try
                     {
                         es.Update();
-                        this.Close();
+                        Close();
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("קרתה שגיאה בעדכון" + ex.Message);
                     }
-                    
                 }
                 if (frmStatus == "SHOW")
                 {
-                    this.Close();
+                    Close();
                 }
-
-
-            }
-          
-
-
-
-
-            
-            
+            }            
         }
-
-        private void lblMis_Click(object sender, EventArgs e)
+        public bool CheckMail(string t)
         {
-
+            //דוא"ל
+            if (t.Length == 0)
+                return false;
+            else //בדיקה שהטקסט מכיל את הסימנים '.' ו-'@'.
+                if ((t.IndexOf("@") == -1) || (t.IndexOf(".") == -1))
+                return false;
+            else //אם הכתובת נכונה
+                return true;
         }
 
         private void FrmEsek_Load(object sender, EventArgs e)
@@ -196,14 +191,12 @@ namespace WindowsFormsApp1.GUI
             cmbShemIr.ValueMember = "kodIr";
         }
 
-        private void txtShemEsek_TextChanged(object sender, EventArgs e)
+        private void txtNayad_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-        }
-
-        private void cmbShemIr_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            if (!char.IsDigit(e.KeyChar)&&!char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

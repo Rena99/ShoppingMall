@@ -15,26 +15,18 @@ namespace WindowsFormsApp1.GUI
     {
         arimTable arim = new arimTable();
         ir ir;
+        string curName = "";
         public FrmArim()
         {
             InitializeComponent();
             ir = new ir();
             dgvarim.DataSource = arim.GetDataTable();
+            SetHeaderColumn();
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void SetHeaderColumn()
         {
-
-        }
-
-        private void FrmArim_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvarim_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            dgvarim.Columns[0].HeaderText = "קוד עיר";
+            dgvarim.Columns[1].HeaderText = "שם עיר";
         }
 
         private void btnChadash_Click(object sender, EventArgs e)
@@ -49,10 +41,17 @@ namespace WindowsFormsApp1.GUI
         {
             bool degel=true;
             errorProvider1.Clear();
+            ir.KodIr = Convert.ToInt32(lblKod.Text);
             try
             {
-                ir.KodIr = Convert.ToInt32(lblKod.Text);
                 ir.ShemIr = txtShem.Text;
+                for(int i=0; i<dgvarim.RowCount-1; i++)
+                {
+                    if (dgvarim.Rows[i].Cells[1].Value.ToString() == ir.ShemIr)
+                    {
+                        throw new Exception("cant have duplicate city");
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -83,6 +82,7 @@ namespace WindowsFormsApp1.GUI
             ir = new ir(Convert.ToInt32(dgvarim.SelectedRows[0].Cells[0].Value));
             lblKod.Text =ir.KodIr .ToString();
             txtShem.Text = ir.ShemIr;
+        curName = txtShem.Text;
         }
 
         private void btnAdcen_Click(object sender, EventArgs e)
@@ -91,15 +91,19 @@ namespace WindowsFormsApp1.GUI
             errorProvider1.Clear();
             try
             {
-                ir.ShemIr = txtShem.Text; 
-                
+                ir.ShemIr = txtShem.Text;
+            for (int i = 0; i < dgvarim.RowCount-1; i++)
+            {
+                if (dgvarim.Rows[i].Cells[1].Value.ToString() == ir.ShemIr && ir.ShemIr!=curName)
+                {
+                    throw new Exception("cant have duplicate city");
+                }
             }
+        }
             catch (Exception ex)
             {
                 errorProvider1.SetError(txtShem, ex.Message);
                 degel = false;
-
-
             }
             if (degel)
             {
@@ -127,10 +131,12 @@ namespace WindowsFormsApp1.GUI
                 MessageBox.Show("לא ניתן למחוק כיוון שיש רשומות מקושרות");
             ir.Delete();
         }
-
-        private void lblKod_Click(object sender, EventArgs e)
+        private void txtShem_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
     }

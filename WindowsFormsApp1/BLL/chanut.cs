@@ -9,7 +9,7 @@ namespace WindowsFormsApp1.BLL
 {
   public  class chanut
     {
-        chanuyotTale myT = new chanuyotTale();
+        chanuyotTable myT = new chanuyotTable();
 
         public int MisChanut { get; set; }
 

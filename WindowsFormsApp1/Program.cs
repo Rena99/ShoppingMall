@@ -16,7 +16,15 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GUI.FrmChanuyot());
+            Application.Run(new Form1());
+
+            //stores
+            //hebrew headers for stores
+            //how add shekel to data grid view
+
+            //hascara
+            //how go over item checklist
+            //custom format date to mm/yyyy
         }
     }
 }

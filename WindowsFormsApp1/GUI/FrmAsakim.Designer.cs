@@ -43,35 +43,41 @@
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.Teal;
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button4.Location = new System.Drawing.Point(600, 825);
             this.button4.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(291, 98);
             this.button4.TabIndex = 15;
             this.button4.Text = "עדכן";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.Teal;
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button3.Location = new System.Drawing.Point(600, 937);
             this.button3.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(291, 98);
             this.button3.TabIndex = 14;
             this.button3.Text = "צפייה";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Teal;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.Location = new System.Drawing.Point(227, 825);
             this.button2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(291, 98);
             this.button2.TabIndex = 13;
             this.button2.Text = "הוסף";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtShem
@@ -90,41 +96,46 @@
             this.txtKod.Name = "txtKod";
             this.txtKod.Size = new System.Drawing.Size(391, 38);
             this.txtKod.TabIndex = 10;
-            this.txtKod.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtKod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKod_KeyPress);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Teal;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Location = new System.Drawing.Point(1232, 825);
             this.button1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(312, 64);
             this.button1.TabIndex = 9;
             this.button1.Text = "חיפוש לפי קוד";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dgvAsakim
             // 
+            this.dgvAsakim.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
             this.dgvAsakim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAsakim.Location = new System.Drawing.Point(176, 29);
             this.dgvAsakim.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.dgvAsakim.MultiSelect = false;
             this.dgvAsakim.Name = "dgvAsakim";
+            this.dgvAsakim.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dgvAsakim.RowHeadersWidth = 102;
             this.dgvAsakim.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAsakim.Size = new System.Drawing.Size(1781, 746);
             this.dgvAsakim.TabIndex = 8;
-            this.dgvAsakim.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.Color.Teal;
+            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button5.Location = new System.Drawing.Point(227, 937);
             this.button5.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(291, 98);
             this.button5.TabIndex = 16;
             this.button5.Text = "מחק";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label1
@@ -138,18 +149,21 @@
             // 
             // button6
             // 
+            this.button6.BackColor = System.Drawing.Color.Teal;
+            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button6.Location = new System.Drawing.Point(56, 1053);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(315, 90);
             this.button6.TabIndex = 18;
             this.button6.Text = "סגירה";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // FrmAsakim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.ClientSize = new System.Drawing.Size(2313, 1159);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.label1);
@@ -161,10 +175,10 @@
             this.Controls.Add(this.txtKod);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvAsakim);
+            this.ForeColor = System.Drawing.Color.Teal;
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "FrmAsakim";
             this.Text = "FrmAsakim";
-            this.Load += new System.EventHandler(this.FrmAsakim_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsakim)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

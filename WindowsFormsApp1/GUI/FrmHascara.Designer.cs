@@ -64,39 +64,41 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblMechir = new System.Windows.Forms.Label();
             this.dgvTashlumim = new System.Windows.Forms.DataGridView();
-            this.dgvSherutim = new System.Windows.Forms.DataGridView();
             this.chbsherut = new System.Windows.Forms.CheckBox();
-            this.cmbSherutim = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.nudZmanChoze)).BeginInit();
             this.grbAshray.SuspendLayout();
             this.grbHoraat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTashlumim)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSherutim)).BeginInit();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbMisEsek
             // 
             this.cmbMisEsek.FormattingEnabled = true;
-            this.cmbMisEsek.Location = new System.Drawing.Point(1883, 219);
+            this.cmbMisEsek.Location = new System.Drawing.Point(1628, 229);
             this.cmbMisEsek.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.cmbMisEsek.Name = "cmbMisEsek";
             this.cmbMisEsek.Size = new System.Drawing.Size(316, 39);
             this.cmbMisEsek.TabIndex = 3;
-            this.cmbMisEsek.SelectedIndexChanged += new System.EventHandler(this.cmbMisEsek_SelectedIndexChanged);
             // 
             // dtpKnisa
             // 
-            this.dtpKnisa.Location = new System.Drawing.Point(1675, 317);
+            this.dtpKnisa.Location = new System.Drawing.Point(1420, 315);
             this.dtpKnisa.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dtpKnisa.MinDate = new System.DateTime(2020, 7, 13, 0, 0, 0, 0);
             this.dtpKnisa.Name = "dtpKnisa";
             this.dtpKnisa.Size = new System.Drawing.Size(527, 38);
             this.dtpKnisa.TabIndex = 4;
             // 
             // nudZmanChoze
             // 
-            this.nudZmanChoze.Location = new System.Drawing.Point(1885, 393);
+            this.nudZmanChoze.Location = new System.Drawing.Point(1630, 391);
             this.nudZmanChoze.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.nudZmanChoze.Minimum = new decimal(new int[] {
             6,
@@ -115,7 +117,7 @@
             // chbhaaracha
             // 
             this.chbhaaracha.AutoSize = true;
-            this.chbhaaracha.Location = new System.Drawing.Point(2171, 484);
+            this.chbhaaracha.Location = new System.Drawing.Point(1916, 482);
             this.chbhaaracha.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.chbhaaracha.Name = "chbhaaracha";
             this.chbhaaracha.Size = new System.Drawing.Size(237, 36);
@@ -129,7 +131,7 @@
             this.cmbOfen.Items.AddRange(new object[] {
             "אשראי",
             "הוראת קבע"});
-            this.cmbOfen.Location = new System.Drawing.Point(1885, 570);
+            this.cmbOfen.Location = new System.Drawing.Point(1630, 568);
             this.cmbOfen.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.cmbOfen.Name = "cmbOfen";
             this.cmbOfen.Size = new System.Drawing.Size(316, 39);
@@ -144,7 +146,7 @@
             this.grbAshray.Controls.Add(this.label11);
             this.grbAshray.Controls.Add(this.dtpTokef);
             this.grbAshray.Controls.Add(this.txtMisAshray);
-            this.grbAshray.Location = new System.Drawing.Point(1800, 634);
+            this.grbAshray.Location = new System.Drawing.Point(1545, 632);
             this.grbAshray.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.grbAshray.Name = "grbAshray";
             this.grbAshray.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
@@ -156,46 +158,55 @@
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Red;
             this.label13.Location = new System.Drawing.Point(544, 155);
             this.label13.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(57, 32);
+            this.label13.Size = new System.Drawing.Size(68, 32);
             this.label13.TabIndex = 22;
-            this.label13.Text = "cvv";
+            this.label13.Text = "cvv*";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.Red;
             this.label12.Location = new System.Drawing.Point(544, 100);
             this.label12.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(74, 32);
+            this.label12.Size = new System.Drawing.Size(85, 32);
             this.label12.TabIndex = 21;
-            this.label12.Text = "תוקף";
+            this.label12.Text = "תוקף*";
             // 
             // txtCvv
             // 
             this.txtCvv.Location = new System.Drawing.Point(149, 148);
             this.txtCvv.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtCvv.MaxLength = 3;
             this.txtCvv.Name = "txtCvv";
             this.txtCvv.Size = new System.Drawing.Size(260, 38);
             this.txtCvv.TabIndex = 2;
+            this.txtCvv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCvv_KeyPress);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Red;
             this.label11.Location = new System.Drawing.Point(544, 24);
             this.label11.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(161, 32);
+            this.label11.Size = new System.Drawing.Size(172, 32);
             this.label11.TabIndex = 20;
-            this.label11.Text = "מספר אשראי";
+            this.label11.Text = "מספר אשראי*";
             // 
             // dtpTokef
             // 
+            this.dtpTokef.CustomFormat = "";
+            this.dtpTokef.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTokef.Location = new System.Drawing.Point(0, 86);
             this.dtpTokef.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dtpTokef.MinDate = new System.DateTime(2020, 7, 13, 0, 0, 0, 0);
             this.dtpTokef.Name = "dtpTokef";
+            this.dtpTokef.ShowUpDown = true;
             this.dtpTokef.Size = new System.Drawing.Size(527, 38);
             this.dtpTokef.TabIndex = 1;
             // 
@@ -203,9 +214,11 @@
             // 
             this.txtMisAshray.Location = new System.Drawing.Point(149, 24);
             this.txtMisAshray.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtMisAshray.MaxLength = 16;
             this.txtMisAshray.Name = "txtMisAshray";
             this.txtMisAshray.Size = new System.Drawing.Size(260, 38);
             this.txtMisAshray.TabIndex = 0;
+            this.txtMisAshray.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMisAshray_KeyPress);
             // 
             // grbHoraat
             // 
@@ -217,7 +230,7 @@
             this.grbHoraat.Controls.Add(this.txtMisBank);
             this.grbHoraat.Controls.Add(this.txtMisSnif);
             this.grbHoraat.Controls.Add(this.txtMisAsmachta);
-            this.grbHoraat.Location = new System.Drawing.Point(1792, 856);
+            this.grbHoraat.Location = new System.Drawing.Point(1537, 854);
             this.grbHoraat.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.grbHoraat.Name = "grbHoraat";
             this.grbHoraat.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
@@ -229,42 +242,46 @@
             // label17
             // 
             this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.Red;
             this.label17.Location = new System.Drawing.Point(467, 217);
             this.label17.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(156, 32);
+            this.label17.Size = new System.Drawing.Size(167, 32);
             this.label17.TabIndex = 20;
-            this.label17.Text = "מספר חשבון";
+            this.label17.Text = "מספר חשבון*";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.Red;
             this.label16.Location = new System.Drawing.Point(485, 155);
             this.label16.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(138, 32);
+            this.label16.Size = new System.Drawing.Size(149, 32);
             this.label16.TabIndex = 13;
-            this.label16.Text = "מספר סניף";
+            this.label16.Text = "מספר סניף*";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.Red;
             this.label15.Location = new System.Drawing.Point(499, 93);
             this.label15.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(127, 32);
+            this.label15.Size = new System.Drawing.Size(138, 32);
             this.label15.TabIndex = 12;
-            this.label15.Text = "מספר בנק";
+            this.label15.Text = "מספר בנק*";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.Red;
             this.label14.Location = new System.Drawing.Point(437, 36);
             this.label14.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(185, 32);
+            this.label14.Size = new System.Drawing.Size(196, 32);
             this.label14.TabIndex = 11;
-            this.label14.Text = "מספר אסמכתא";
+            this.label14.Text = "מספר אסמכתא*";
             // 
             // txtMisCheshbon
             // 
@@ -273,6 +290,7 @@
             this.txtMisCheshbon.Name = "txtMisCheshbon";
             this.txtMisCheshbon.Size = new System.Drawing.Size(260, 38);
             this.txtMisCheshbon.TabIndex = 4;
+            this.txtMisCheshbon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMisCheshbon_KeyPress);
             // 
             // txtMisBank
             // 
@@ -281,6 +299,7 @@
             this.txtMisBank.Name = "txtMisBank";
             this.txtMisBank.Size = new System.Drawing.Size(260, 38);
             this.txtMisBank.TabIndex = 3;
+            this.txtMisBank.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMisBank_KeyPress);
             // 
             // txtMisSnif
             // 
@@ -289,6 +308,7 @@
             this.txtMisSnif.Name = "txtMisSnif";
             this.txtMisSnif.Size = new System.Drawing.Size(260, 38);
             this.txtMisSnif.TabIndex = 2;
+            this.txtMisSnif.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMisSnif_KeyPress);
             // 
             // txtMisAsmachta
             // 
@@ -297,11 +317,12 @@
             this.txtMisAsmachta.Name = "txtMisAsmachta";
             this.txtMisAsmachta.Size = new System.Drawing.Size(260, 38);
             this.txtMisAsmachta.TabIndex = 0;
+            this.txtMisAsmachta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMisAsmachta_KeyPress);
             // 
             // lblMisHascara
             // 
             this.lblMisHascara.AutoSize = true;
-            this.lblMisHascara.Location = new System.Drawing.Point(2147, 21);
+            this.lblMisHascara.Location = new System.Drawing.Point(1892, 19);
             this.lblMisHascara.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblMisHascara.Name = "lblMisHascara";
             this.lblMisHascara.Size = new System.Drawing.Size(93, 32);
@@ -311,7 +332,7 @@
             // lblTaarichBakasha
             // 
             this.lblTaarichBakasha.AutoSize = true;
-            this.lblTaarichBakasha.Location = new System.Drawing.Point(2147, 88);
+            this.lblTaarichBakasha.Location = new System.Drawing.Point(1820, 86);
             this.lblTaarichBakasha.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblTaarichBakasha.Name = "lblTaarichBakasha";
             this.lblTaarichBakasha.Size = new System.Drawing.Size(93, 32);
@@ -321,7 +342,7 @@
             // lblMisChanut
             // 
             this.lblMisChanut.AutoSize = true;
-            this.lblMisChanut.Location = new System.Drawing.Point(2147, 167);
+            this.lblMisChanut.Location = new System.Drawing.Point(1892, 165);
             this.lblMisChanut.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblMisChanut.Name = "lblMisChanut";
             this.lblMisChanut.Size = new System.Drawing.Size(93, 32);
@@ -331,7 +352,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(2293, 21);
+            this.label4.Location = new System.Drawing.Point(2038, 19);
             this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(167, 32);
@@ -341,7 +362,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(2259, 88);
+            this.label5.Location = new System.Drawing.Point(2004, 86);
             this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(162, 32);
@@ -351,7 +372,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(2283, 167);
+            this.label6.Location = new System.Drawing.Point(2028, 165);
             this.label6.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(138, 32);
@@ -361,27 +382,29 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(2291, 238);
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(2036, 236);
             this.label7.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(135, 32);
+            this.label7.Size = new System.Drawing.Size(146, 32);
             this.label7.TabIndex = 16;
-            this.label7.Text = "מספר עסק";
+            this.label7.Text = "מספר עסק*";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(2248, 331);
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(1993, 329);
             this.label8.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(162, 32);
+            this.label8.Size = new System.Drawing.Size(173, 32);
             this.label8.TabIndex = 17;
-            this.label8.Text = "תאריך כניסה";
+            this.label8.Text = "תאריך כניסה*";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(2277, 410);
+            this.label9.Location = new System.Drawing.Point(2022, 408);
             this.label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(143, 32);
@@ -391,22 +414,25 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(2277, 570);
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(2022, 568);
             this.label10.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(150, 32);
+            this.label10.Size = new System.Drawing.Size(161, 32);
             this.label10.TabIndex = 19;
-            this.label10.Text = "אופן תשלום";
+            this.label10.Text = "אופן תשלום*";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1392, 1304);
+            this.button1.BackColor = System.Drawing.Color.Teal;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(1137, 1302);
             this.button1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(200, 55);
             this.button1.TabIndex = 20;
             this.button1.Text = "אישור";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // errorProvider1
@@ -416,44 +442,32 @@
             // lblMechir
             // 
             this.lblMechir.AutoSize = true;
-            this.lblMechir.Location = new System.Drawing.Point(1976, 167);
+            this.lblMechir.Location = new System.Drawing.Point(1721, 165);
             this.lblMechir.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblMechir.Name = "lblMechir";
             this.lblMechir.Size = new System.Drawing.Size(93, 32);
             this.lblMechir.TabIndex = 21;
             this.lblMechir.Text = "label3";
-            this.lblMechir.Click += new System.EventHandler(this.lblMechir_Click);
             // 
             // dgvTashlumim
             // 
+            this.dgvTashlumim.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
             this.dgvTashlumim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTashlumim.Location = new System.Drawing.Point(32, 122);
             this.dgvTashlumim.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.dgvTashlumim.MultiSelect = false;
             this.dgvTashlumim.Name = "dgvTashlumim";
+            this.dgvTashlumim.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dgvTashlumim.RowHeadersWidth = 102;
             this.dgvTashlumim.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTashlumim.Size = new System.Drawing.Size(1040, 553);
             this.dgvTashlumim.TabIndex = 22;
             this.dgvTashlumim.Visible = false;
             // 
-            // dgvSherutim
-            // 
-            this.dgvSherutim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSherutim.Location = new System.Drawing.Point(32, 806);
-            this.dgvSherutim.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.dgvSherutim.MultiSelect = false;
-            this.dgvSherutim.Name = "dgvSherutim";
-            this.dgvSherutim.RowHeadersWidth = 102;
-            this.dgvSherutim.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSherutim.Size = new System.Drawing.Size(1040, 553);
-            this.dgvSherutim.TabIndex = 23;
-            this.dgvSherutim.Visible = false;
-            // 
             // chbsherut
             // 
             this.chbsherut.AutoSize = true;
-            this.chbsherut.Location = new System.Drawing.Point(2157, 1135);
+            this.chbsherut.Location = new System.Drawing.Point(1902, 1133);
             this.chbsherut.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.chbsherut.Name = "chbsherut";
             this.chbsherut.Size = new System.Drawing.Size(238, 36);
@@ -462,35 +476,71 @@
             this.chbsherut.UseVisualStyleBackColor = true;
             this.chbsherut.CheckedChanged += new System.EventHandler(this.chbsherut_CheckedChanged);
             // 
-            // cmbSherutim
-            // 
-            this.cmbSherutim.FormattingEnabled = true;
-            this.cmbSherutim.Location = new System.Drawing.Point(1917, 1190);
-            this.cmbSherutim.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.cmbSherutim.Name = "cmbSherutim";
-            this.cmbSherutim.Size = new System.Drawing.Size(316, 39);
-            this.cmbSherutim.TabIndex = 25;
-            this.cmbSherutim.Visible = false;
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1592, 219);
+            this.button2.BackColor = System.Drawing.Color.Teal;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(1337, 217);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(245, 59);
             this.button2.TabIndex = 26;
             this.button2.Text = "בעלי עסק";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(1650, 1179);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkedListBox1.Size = new System.Drawing.Size(294, 179);
+            this.checkedListBox1.TabIndex = 29;
+            this.checkedListBox1.Visible = false;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(47, 888);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tabControl1.RightToLeftLayout = true;
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1003, 471);
+            this.tabControl1.TabIndex = 30;
+            this.tabControl1.Visible = false;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(10, 48);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(983, 413);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "קבוע";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(10, 48);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(983, 413);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "חד פעמי";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // FrmHascara
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.ClientSize = new System.Drawing.Size(2520, 1555);
+            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.cmbSherutim);
             this.Controls.Add(this.chbsherut);
-            this.Controls.Add(this.dgvSherutim);
             this.Controls.Add(this.dgvTashlumim);
             this.Controls.Add(this.lblMechir);
             this.Controls.Add(this.button1);
@@ -511,6 +561,7 @@
             this.Controls.Add(this.nudZmanChoze);
             this.Controls.Add(this.dtpKnisa);
             this.Controls.Add(this.cmbMisEsek);
+            this.ForeColor = System.Drawing.Color.Teal;
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "FrmHascara";
             this.Text = "FrmHascara";
@@ -522,7 +573,7 @@
             this.grbHoraat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTashlumim)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSherutim)).EndInit();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -564,9 +615,11 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label lblMechir;
         private System.Windows.Forms.DataGridView dgvTashlumim;
-        private System.Windows.Forms.DataGridView dgvSherutim;
-        private System.Windows.Forms.ComboBox cmbSherutim;
         private System.Windows.Forms.CheckBox chbsherut;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }

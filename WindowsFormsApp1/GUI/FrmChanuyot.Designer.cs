@@ -42,6 +42,7 @@
             this.txtShetach = new System.Windows.Forms.TextBox();
             this.cmbSug = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             button5 = new System.Windows.Forms.Button();
@@ -51,17 +52,20 @@
             // 
             // button5
             // 
+            button5.BackColor = System.Drawing.Color.Teal;
+            button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             button5.Location = new System.Drawing.Point(1901, 29);
             button5.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             button5.Name = "button5";
             button5.Size = new System.Drawing.Size(200, 55);
             button5.TabIndex = 5;
             button5.Text = "סינון";
-            button5.UseVisualStyleBackColor = true;
+            button5.UseVisualStyleBackColor = false;
             button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // dgvChanuyot
             // 
+            this.dgvChanuyot.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
             this.dgvChanuyot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChanuyot.Location = new System.Drawing.Point(32, 29);
             this.dgvChanuyot.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
@@ -74,46 +78,54 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Teal;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Location = new System.Drawing.Point(773, 858);
             this.button1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(200, 55);
             this.button1.TabIndex = 1;
             this.button1.Text = "חדש";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Teal;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.Location = new System.Drawing.Point(525, 858);
             this.button2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(200, 55);
             this.button2.TabIndex = 2;
             this.button2.Text = "עדכון";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.Teal;
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button3.Location = new System.Drawing.Point(275, 858);
             this.button3.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(200, 55);
             this.button3.TabIndex = 3;
             this.button3.Text = "מחק";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.Teal;
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button4.Location = new System.Drawing.Point(32, 858);
             this.button4.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(200, 55);
             this.button4.TabIndex = 4;
             this.button4.Text = "צפייה";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // chbMechir
@@ -171,7 +183,7 @@
             this.txtMechir.Size = new System.Drawing.Size(260, 38);
             this.txtMechir.TabIndex = 10;
             this.txtMechir.Visible = false;
-            this.txtMechir.TextChanged += new System.EventHandler(this.txtMechir_TextChanged);
+            this.txtMechir.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMechir_KeyPress);
             // 
             // txtShetach
             // 
@@ -181,7 +193,7 @@
             this.txtShetach.Size = new System.Drawing.Size(260, 38);
             this.txtShetach.TabIndex = 11;
             this.txtShetach.Visible = false;
-            this.txtShetach.TextChanged += new System.EventHandler(this.txtShetach_TextChanged);
+            this.txtShetach.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtShetach_KeyPress);
             // 
             // cmbSug
             // 
@@ -199,6 +211,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.chbMechir);
             this.groupBox1.Controls.Add(this.cmbSug);
@@ -216,32 +229,47 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 32);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "ש\"ח";
+            this.label1.Visible = false;
+            // 
             // button6
             // 
+            this.button6.BackColor = System.Drawing.Color.Teal;
+            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button6.Location = new System.Drawing.Point(16, 367);
             this.button6.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(200, 55);
             this.button6.TabIndex = 13;
             this.button6.Text = "בצע חפוש";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button8
             // 
+            this.button8.BackColor = System.Drawing.Color.Teal;
+            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button8.Location = new System.Drawing.Point(1629, 29);
             this.button8.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(256, 55);
             this.button8.TabIndex = 15;
             this.button8.Text = "השכרה חדשה";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // FrmChanuyot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.ClientSize = new System.Drawing.Size(2140, 963);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.groupBox1);
@@ -251,10 +279,10 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvChanuyot);
+            this.ForeColor = System.Drawing.Color.Teal;
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "FrmChanuyot";
             this.Text = " ";
-            this.Load += new System.EventHandler(this.FrmChanuyot_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChanuyot)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -279,5 +307,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -122,22 +122,7 @@ namespace WindowsFormsApp1.BLL
 
             get { return sherutimMeyuchadim; }
             set { sherutimMeyuchadim = value; }
-        }
-        private int misSherut;
-
-        public int MisSherut
-        {
-            get { return misSherut; }
-            set { misSherut = value; }
-        }
-        private string shemSherut;
-
-        public string ShemSherut
-        {
-            get { return shemSherut; }
-            set { shemSherut = value; }
-        }
-
+        }     
 
         private DataRow drow;
         public DataRow Drow
@@ -172,8 +157,6 @@ namespace WindowsFormsApp1.BLL
             drow["misSnif"] = misSnif;
             drow["misCheshbon"] = misCheshbon;
             drow["sherutimMeyuchadim"] = sherutimMeyuchadim;
-            drow["misSherut"] = misSherut;
-            drow["shemSherut"] = shemSherut;
         }
         public void FillFields()
         {
@@ -193,9 +176,6 @@ namespace WindowsFormsApp1.BLL
             misSnif = Convert.ToInt32(drow["misSnif"]);
             misCheshbon = Convert.ToInt32(drow["misCheshbon"]);
             sherutimMeyuchadim = Convert.ToBoolean(drow["sherutimMeyuchadim"]);
-            misSherut = Convert.ToInt32(drow["misSherut"]);
-            shemSherut = drow["shemSherut"].ToString();
-
         }
         public void Add()// חדש הוספת רשומה חדשה
         {
